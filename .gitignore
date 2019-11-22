@@ -1,27 +1,3 @@
-tags/kis_brushes_tags.xml
-tags/kis_paintoppresets_tags.xml
-tags/kis_resourcebundles_tags.xml
-tags/kis_sessions_tags.xml
-tags/kis_taskset_tags.xml
-tags/kis_windowlayouts_tags.xml
-tags/kis_workspaces_tags.xml
-tags/ko_gamutmasks_tags.xml
-tags/ko_gradients_tags.xml
-tags/ko_palettes_tags.xml
-tags/ko_patterns_tags.xml
-tags/psd_layer_style_collections_tags.xml
-tags/symbols_tags.xml
-patterns/Blending Modes.pat
-patterns/Carbon Fiber - 00.pat
-patterns/Lace - Rose.pat
-patterns/Lace - Sample.pat
-patterns/Leather - 01.pat
-patterns/Moon.pat
-patterns/Skin - 01.pat
-brushes/Hayden's Brushes.abr
-input/kritadefault.profile
-input/painttoolsaicompatible.profile
-input/photoshopcompatible.profile
 .vscode/settings.json
 asl/**
 authorinfo/**
