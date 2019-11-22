@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionCollection version="2" name="Scripts">
+    <Actions category="Scripts">
+        <text>My Scripts</text>
+
+        <Action name="wallSizer">
+        <icon></icon>
+        <text>Wallpaper Sizer</text>
+        <whatsThis></whatsThis>
+        <tooltip>Resize your image to fit as wallpaper</tooltip>
+        <iconText></iconText>
+        <activationFlags>10000</activationFlags>
+        <activationConditions>0</activationConditions>
+        <shortcut>ctrl+F8</shortcut>
+        <isCheckable>false</isCheckable>
+        <statusTip></statusTip>
+        </Action>
+    </Actions>
+</ActionCollection>

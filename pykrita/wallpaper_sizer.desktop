@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=wallpaper_sizer
+X-Python-2-Compatible=false
+X-Krita-Manual=wallpaperSizerManual.html
+Name=Wallpaper Sizer
+Comment=Resizes and then crops images to fit the desktop
