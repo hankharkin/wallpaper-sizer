@@ -18,3 +18,14 @@ Also, right now, the sizes are hard-coded until I create a docker.
 
 Future plans include image enhancement before and after the resize, presets for different
 image uses (facebook cover photos, mobile wallpapers, profile pics, etc.), and batching.
+
+## Installation Instructions
+
+1.  Stick everything in your Krita resources folder (on Linux ~/.local/share/krita/)
+2.  Open Krita, go to the Settings > Configure Krita > Python Plugin Manager and enable the "Wallpaper Sizer" plugin.
+
+## Usage
+To use the plugin, open an image and then go to Tools > Scripts > Wallpaper Sizer
+Right now, there will be procedural message popups at each stage.  Just click okay each time.
+If you want to change the size of the end result, just open wallpaper_sizer.py and change the values of the 
+VERTICAL and HORIZONTAL variables.
