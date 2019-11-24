@@ -18,57 +18,57 @@ class WallpaperSizer(Extension):
         action.triggered.connect(self.wallpaperSizer)
 
     def Resize(self,v,h):
-        diffV = VERTICAL/v
-        diffH = HORIZONTAL/h
+        diffV = VERTICAL / v
+        diffH = HORIZONTAL / h
         doc = Krita.instance().activeDocument()
 
         if(v < VERTICAL and h > HORIZONTAL):
-            v *= diffV
+            v = VERTICAL
             h *= diffV
-            print("Height too small, Enlarging Image")
-            doc.scaleImage(h,v,doc.xRes(),doc.yRes(),"Bicubic")
+            QMessageBox.information(QWidget(), "Too Short", "Height too small, Enlarging Image")
+            doc.scaleImage(h,v,doc.xRes(),doc.yRes(),"Bicubic") 
             self.Resize(v,h)
+
         elif(v > VERTICAL and h < HORIZONTAL):
-            h *= diffH
+            h = HORIZONTAL
             v *= diffH
-            print("Width too small, Enlarging Image")
+            QMessageBox.information(QWidget(), "Too Narrow", "Width too small, Enlarging Image")
             doc.scaleImage(h,v,doc.xRes(),doc.yRes(),"Bicubic")
             self.Resize(v,h)
+
         elif(v < VERTICAL and h < HORIZONTAL):
             if(diffH < diffV):
-                v *= diffV
+                v = VERTICAL
                 h *= diffV
             elif(diffH > diffV):
                 v *= diffH
-                h *= diffH
-            print("Both height and width too small, Enlarging Image")
+                h = HORIZONTAL
+            QMessageBox.information(QWidget(), "Too Small", "Both height and width too small, Enlarging Image")
             doc.scaleImage(h,v,doc.xRes(),doc.yRes(),"Bicubic")
-            print("Calling Resize function Again...")
             self.Resize(v,h)
+
         elif(v > VERTICAL and h > HORIZONTAL):
+            QMessageBox.information(QWidget(), "Dimensions", str(h) + " x " + str(v))
             if(diffH < diffV):
-                v *= diffV
+                v = VERTICAL
                 h *= diffV
             elif(diffH > diffV):
                 v *= diffH
-                h *= diffH
-            print("Both height and width too big, Shrinking Image")
+                h = HORIZONTAL
+            QMessageBox.information(QWidget(), "Too Big", "Both height and width too big, Shrinking Image")
             doc.scaleImage(h,v,doc.xRes(),doc.yRes(),"Bell")
-            print("Resizing Again...")
             self.Resize(v,h)
+
         else:
-            # print("Image Ready to be Cropped!")
             QMessageBox.information(QWidget(), "Crop", "Image Ready to be Cropped!")
-            leftEdge = (h - HORIZONTAL) / 2
-            topEdge = (v - VERTICAL) / 2
+            leftEdge = (h - HORIZONTAL) // 2
+            topEdge = (v - VERTICAL) // 2
             doc.resizeImage(leftEdge,topEdge,HORIZONTAL,VERTICAL)
             doc.save()
 
     def wallpaperSizer(self):
         doc = Krita.instance().activeDocument()
-        # if(doc.height() > doc.width()):
-        #     print("Noooo, this is only for landscape-oriented pictures....for now")
-        if(doc.height() < VERTICAL / 2 or doc.width() < HORIZONTAL / 2):
+        if(doc.width() < HORIZONTAL / 2):
             QMessageBox.information(QWidget(), "Too small", "Image too small to grow to desired size. It will look like sh**!")
         else:
             self.Resize(doc.height(),doc.width())
